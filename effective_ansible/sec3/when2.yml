@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+    - name: Control status by failed when
+      command: mkdir /tmp
+      register: failed_result
+      failed_when: failed_result.stderr == ""
+    - name: Control status by changed when
+      command: which tree
+      register: changed_result
+      changed_when: changed_result.rc != 0

@@ -1,0 +1,11 @@
+- hosts: all
+  vars:
+    title: "Ansible practical book"
+    title_option: True
+  tasks:
+    - name: debug scalar char 0
+      debug:
+        var: title[0]
+    - name: debug scalar char 0:2
+      debug:
+        var: title[0:2]

@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+    - debug: var=target_env
+      vars:
+        target_env: dev
+
+- hosts: all
+  vars:
+    target_env: stg
+  tasks:
+    - debug: var=target_env

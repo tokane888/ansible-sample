@@ -1,0 +1,6 @@
+- hosts: all
+  tasks:
+    - block:
+        - copy: src=hoge.txt dest=~/hoge.txt
+        - copy: src=fuga.txt dest=~/fuga.txt
+      when: ansible_os_family == 'Debian'

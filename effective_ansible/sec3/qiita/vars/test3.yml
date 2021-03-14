@@ -1,0 +1,3 @@
+src_file: ../files/test3.txt
+dest: /tmp
+mode: 0666

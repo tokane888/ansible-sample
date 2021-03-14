@@ -1,0 +1,14 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: set ntp server
+      template:
+        src: timesyncd.conf.j2
+        dest: /etc/systemd/timesyncd.conf
+      notify:
+        - Restart ntp
+  handlers:
+    - name: Restart ntp
+      service:
+        name: systemd-timesyncd
+        state: restarted

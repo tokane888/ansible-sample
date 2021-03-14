@@ -1,0 +1,4 @@
+- hosts: all
+{% if hostvars[host].ansible_host is defined %}
+client_ip = {{ hostvars[host].ansible_host }}
+{% endif %}

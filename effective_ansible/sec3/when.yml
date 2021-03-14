@@ -1,0 +1,9 @@
+- hosts: all
+  vars_files:
+    - ./group_vars/test.yml
+  tasks:
+    - name: deploy conf when env is test
+      file:
+        dest: /tmp/test.txt
+        state: touch
+      when: env == 'test'

@@ -1,0 +1,7 @@
+- hosts: all
+  vars:
+    hoge: fuga
+  tasks:
+    - name: check variable
+      debug:
+        var: hoge

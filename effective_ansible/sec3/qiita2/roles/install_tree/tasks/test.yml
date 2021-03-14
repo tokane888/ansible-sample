@@ -1,0 +1,4 @@
+---
+- name: tag test
+  debug:
+    msg: "debug task"

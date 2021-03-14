@@ -1,0 +1,15 @@
+{% for host in vhosts %}
+<VirtualHost *:80>
+  ServerName {{ host.name }}
+  DocumentRoot {{ host.docroot }}
+{% if host.isauth %}
+    <Directory {{ host.docroot }}>
+      AuthType Basic
+      AuthName "Basic Auth"
+      AuthUserfile /etc/httpd/conf.d/.htpasswd
+      Require valid-user
+    </Directory>
+{% endif %}
+</VirtualHost>
+
+{% endfor %}

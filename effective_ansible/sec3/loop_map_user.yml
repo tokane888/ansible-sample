@@ -1,0 +1,15 @@
+- hosts: all
+  become: true
+  tasks:
+    - name: Add group
+      group:
+        name: "wheel"
+        state: present
+    - name: Add several users
+      user:
+        name: "{{ item.name }}"
+        state: present
+        group: "{{ item.groups }}"
+      loop:
+        - { name: 'user01', groups: 'wheel' }
+        - { name: 'user02', groups: 'wheel' }

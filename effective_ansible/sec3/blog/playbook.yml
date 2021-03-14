@@ -1,0 +1,9 @@
+- hosts: all
+  vars:
+    hostname: example.com
+    document_root: /var/www/example.com/htdocs
+  tasks:
+    - name: generate Apache vhost config file
+      template:
+        src: ./vhost.conf.j2
+        dest: /home/ansible/vhost.conf

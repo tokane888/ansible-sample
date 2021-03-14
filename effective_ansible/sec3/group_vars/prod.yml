@@ -1,0 +1,7 @@
+vars:
+  hoge: "fuga"
+vars_prompt:
+  - name: "prompt_test"
+    prompt: "Please enter test pass"
+    private: true
+    confirm: true

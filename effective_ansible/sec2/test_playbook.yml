@@ -1,0 +1,20 @@
+---
+- hosts: test_servers
+  tasks:
+  - name: create user
+    user:
+      user: ansible
+      comment: "playbook test"
+  - name: create directory
+    file:
+      path: /home/ansible/tmp
+      state: directory
+      owner: ansible
+      mode: 0755
+
+  - name: copy file
+    copy:
+      src: /etc/hosts
+      dest: /home/ansible/tmp/hosts
+      owner: ansible
+      mode: 0644

@@ -1,0 +1,11 @@
+- hosts: all
+  vars_files:
+    - ../vars/test3.yml
+  tasks:
+    - name: copy file
+      copy:
+        src: "{{ src_file }}"
+        dest: "{{ dest }}"
+        mode: "{{ mode }}"
+        backup: yes
+      

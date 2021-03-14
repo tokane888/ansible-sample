@@ -1,0 +1,5 @@
+- hosts: all
+  tasks:
+    - name: ignore error
+      shell: /bin/false
+      ignore_errors: true

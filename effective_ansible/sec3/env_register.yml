@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+    - name: Get hardware info
+      shell: uname -r
+      register: result
+    - name: Debug result
+      debug:
+        var: result

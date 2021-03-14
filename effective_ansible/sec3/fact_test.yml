@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+    - name: create config file
+      ini_file:
+        path: /home/ansible/tmp/test.ini
+        section: default
+        option: IPADDR
+        value: "{{ ansible_default_ipv4.address }}"

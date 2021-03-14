@@ -1,0 +1,11 @@
+- hosts: all
+  tasks:
+    - block:
+        - command: /bin/false
+        - debug: msg='Error occured on this task.'
+      rescue:
+        - debug: msg='Error'
+        - command: /bin/false
+        - debug: msg='Error occured on this task.'
+      always:
+        - debug: msg='always executed'

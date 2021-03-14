@@ -1,0 +1,18 @@
+- hosts: all
+  vars:
+    test:
+      val0_1_1: "local_users.0.1"
+      val1_0_2: "local_users[1][0]"
+    local_users:
+      -
+        - user02
+        - user03
+      -
+        - user11
+  tasks:
+    - name: debug value1
+      debug:
+        var: "{{ test.val0_1_1 }}"
+    - name: debug value2
+      debug:
+        var: "{{ test.val1_0_2 }}"

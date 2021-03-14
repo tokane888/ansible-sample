@@ -1,0 +1,12 @@
+- hosts: all
+  gather_facts: true
+  pre_tasks:
+    - name: debug1
+      debug: msg="{{ inventory_hostname }}"
+    - name: debug2
+      debug: msg="{{ ansible_hostname }}"
+  roles:
+    - install_tree
+  tasks:
+    - name: main debug
+      debug: msg="main task"

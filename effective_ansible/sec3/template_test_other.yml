@@ -1,0 +1,7 @@
+- hosts: all
+  tasks:
+    - template:
+        src: ./foo.j2
+        dest: /home/ansible/file.conf
+  vars:
+    test_name: Ansible

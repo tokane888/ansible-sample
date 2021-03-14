@@ -1,0 +1,30 @@
+---
+- hosts: test_servers
+  become: true
+  tasks:
+  - name: create directory
+    file:
+      path: /home/ansible/tmp
+      state: directory
+      owner: ansible
+      mode: 0755
+  - name: copy file
+    copy:
+      src: /etc/hosts
+      dest: /home/ansible/tmp/hosts
+      owner: ansible
+      mode: 0644
+  - name: install tree
+    apt:
+      name: tree
+  - name: config ntp server
+    template:
+      src: timesyncd.conf
+      dest: /etc/systemd/timesyncd.conf
+    notify:
+      - restart
+  handlers:
+    - name: restart
+      service:
+        name: systemd-timesyncd
+        state: restarted
